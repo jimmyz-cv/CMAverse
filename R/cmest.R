@@ -73,6 +73,7 @@
 #' confidence intervals are estimated; if \code{bca}, bias-corrected and accelerated (BCa) bootstrap 
 #' confidence intervals are estimated. Default is \code{per}.
 #' @param cores the number of cpus to use for bootstrapping
+#' @param cl the cluster used for bootstrapping
 #' @param nRep number of replications or hypothetical values of the exposure to sample for 
 #' each observation unit (used when \code{model} is \code{ne}). Default is \code{5}.
 #' @param multimp a logical value (used when \code{data} contains missing values). If 
@@ -423,7 +424,7 @@ cmest <- function(data = NULL, model = "rb",
                   yreg = NULL, mreg = NULL, wmnomreg = NULL, wmdenomreg = NULL, ereg = NULL, 
                   postcreg = NULL,
                   astar = 0, a = 1, mval = NULL, yval = NULL, basecval = NULL,
-                  nboot = 200, boot.ci.type = "per", cores = 4, nRep = 5, multimp = FALSE, ...) {
+                  nboot = 200, boot.ci.type = "per", cores = 4, cl = NULL, nRep = 5, multimp = FALSE, ...) {
   # function call
   cl <- match.call()
   n <- nrow(data)
