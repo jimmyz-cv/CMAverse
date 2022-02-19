@@ -480,6 +480,7 @@ cmest <- function(data = NULL, model = "rb",
     if (!is.numeric(nboot)) stop("nboot should be numeric")
     if (!boot.ci.type %in% c("per", "bca")) stop("Select boot.ci.type from 'per', 'bca'")
     out$methods$nboot <- nboot
+    out$methods$cores <- cores
     out$methods$boot.ci.type <- boot.ci.type
   }
   # outcome
