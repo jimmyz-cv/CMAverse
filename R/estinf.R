@@ -273,7 +273,7 @@ estinf <- function() {
       out$reg.output <- est$reg.output
       if (inference == "bootstrap") {
         # bootstrap results
-        boots <- boot(data = data, statistic = est.rb, R = nboot, outReg = FALSE, parallel = "snow", ncpus = cores, full = full)
+        boots <- boot(data = data, statistic = est.rb, R = nboot, parallel = "snow", ncpus = cores, outReg = FALSE, full = full)
         # bootstrap CIs
         environment(boot.ci) <- environment()
         effect.ci <- boot.ci(boots = boots)
@@ -399,7 +399,7 @@ estinf <- function() {
       n_effect <- length(effect.pe)
       out$reg.output <- est$reg.output
       # bootstrap results
-      boots <- boot(data = data, statistic = est.gformula, R = nboot, outReg = FALSE, parallel = "snow", ncpus = cores, full = full)
+      boots <- boot(data = data, statistic = est.gformula, R = nboot, parallel = "snow", ncpus = cores, outReg = FALSE, full = full)
       # bootstrap CIs
       environment(boot.ci) <- environment()
       effect.ci <- boot.ci(boots = boots)
@@ -511,7 +511,7 @@ estinf <- function() {
       n_effect <- length(effect.pe)
       out$reg.output <- est$reg.output
       # bootstrap results
-      boots <- boot(data = data, statistic = est.wb, R = nboot, outReg = FALSE, parallel = "snow", ncpus = cores, full = full)
+      boots <- boot(data = data, statistic = est.wb, R = nboot, parallel = "snow", ncpus = cores, outReg = FALSE, full = full)
       # bootstrap CIs
       environment(boot.ci) <- environment()
       effect.ci <- boot.ci(boots = boots)
@@ -606,7 +606,7 @@ estinf <- function() {
       n_effect <- length(effect.pe)
       out$reg.output <- est$reg.output
       # bootstrap results
-      boots <- boot(data = data, statistic = est.iorw, R = nboot, outReg = FALSE, parallel = "snow", ncpus = cores, full = full)
+      boots <- boot(data = data, statistic = est.iorw, R = nboot, parallel = "snow", ncpus = cores, outReg = FALSE, full = full)
       # bootstrap CIs
       environment(boot.ci) <- environment()
       effect.ci <- boot.ci(boots = boots)
@@ -705,7 +705,7 @@ estinf <- function() {
       n_effect <- length(effect.pe)
       out$reg.output <- est$reg.output
       # bootstrap results
-      boots <- boot(data = data, statistic = est.msm, R = nboot, outReg = FALSE, parallel = "snow", ncpus = cores, full = full)
+      boots <- boot(data = data, statistic = est.msm, R = nboot, parallel = "snow", ncpus = cores, outReg = FALSE, full = full)
       # bootstrap CIs
       environment(boot.ci) <- environment()
       effect.ci <- boot.ci(boots = boots)
@@ -814,7 +814,7 @@ estinf <- function() {
       n_effect <- length(effect.pe)
       out$reg.output <- est$reg.output
       # bootstrap results
-      boots <- boot(data = data, statistic = est.ne, R = nboot, outReg = FALSE, parallel = "snow", ncpus = cores, full = full)
+      boots <- boot(data = data, statistic = est.ne, R = nboot, parallel = "snow", ncpus = cores, outReg = FALSE, full = full)
       # bootstrap CIs
       environment(boot.ci) <- environment()
       effect.ci <- boot.ci(boots = boots)
@@ -929,3 +929,4 @@ rqpois = function(n, lambda, phi) {
   r = stats::rnbinom(n, mu = lambda, size = lambda/(phi-1))
   return(r)
 }
+
